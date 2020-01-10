@@ -3,21 +3,21 @@ services:
     - docker
 
 before_install:
-    - docker build -t kirapan/react-test -f ./client/Dockerfile.dev ./client
+    - docker build -t oalquimista/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-    - docker run -e CI=true kirapan/react-test npm test
+    - docker run -e CI=true oalquimista/react-test npm test
 
 after_success:
-    - docker build -t kirapan/multi-client ./client
-    - docker build -t kirapan/multi-nginx ./nginx
-    - docker build -t kirapan/multi-server ./server
-    - docker build -t kirapan/multi-worker ./worker
+    - docker build -t oalquimista/multi-client ./client
+    - docker build -t oalquimista/multi-nginx ./nginx
+    - docker build -t oalquimista/multi-server ./server
+    - docker build -t oalquimista/multi-worker ./worker
     # log in to the docker CLI
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
     # take those images and push them to docker hub
-    - docker push kirapan/multi-client
-    - docker push kirapan/multi-nginx
-    - docker push kirapan/multi-server
-    - docker push kirapan/multi-worker
+    - docker push oalquimista/multi-client
+    - docker push oalquimista/multi-nginx
+    - docker push oalquimista/multi-server
+    - docker push oalquimista/multi-worker
     
