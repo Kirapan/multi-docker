@@ -16,9 +16,9 @@
             "memory": 128
         },
         {
-            "name": "workder",
+            "name": "worker",
             "image": "oalquimista/multi-worker",
-            "hostname": "workder",
+            "hostname": "worker",
             "essential": false,
             "memory": 128
         },
